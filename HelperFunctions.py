@@ -24,7 +24,6 @@ def jit_cross(a, b):
     # cross product which is faster than numpy.cross (about 4 times for different vector sizes)
     c = np.zeros(b.shape, dtype=a.dtype)
     for i in xrange(b.shape[0]):
-        # note that += instead of = gives x speedup
         c[i,0] = a[i,1]*b[i,2] - a[i,2]*b[i,1]
         c[i,1] = a[i,2]*b[i,0] - a[i,0]*b[i,2]
         c[i,2] = a[i,0]*b[i,1] - a[i,1]*b[i,0]
