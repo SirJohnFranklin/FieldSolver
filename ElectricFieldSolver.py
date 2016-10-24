@@ -237,7 +237,7 @@ class CartesianPoissonSolver(PoissonSolverBase):
         # creates the right hand side of possion equation
         # rho_i is density of ions in a cell (see poisson equation)
         # See http://www.sciencedirect.com/science/article/pii/0010465571900476 for dx**2 factor (p in paper)
-        b = self.initial_potential - self.dx * self.dy * self.rho_i / const.epsilon_0
+        b = self.initial_potential - self.dx**2 * self.rho_i / const.epsilon_0
         b = b.reshape(self.nx * self.ny)
         return b
 
