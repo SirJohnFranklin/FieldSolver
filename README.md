@@ -1,5 +1,5 @@
 # FieldSolver
-Code examples how to solve possion equation efficienty in cartesian and cylindrical coordinates.
+Code examples how to solve possion equation efficienty with Python in cartesian and cylindrical coordinates.
 
 There are many very sophisticated codes which allow the user to calculate electric or magnetic fields e.g. fipy but the
 problem I encountered was that these codes are very complex. They use efficient but complex methods, e.g. finite volume
