@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/FieldSolver.iml" filepath="$PROJECT_DIR$/.idea/FieldSolver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Coding/ISANSpectrum/.idea/ISANSpectrum.iml" filepath="$PROJECT_DIR$/../../Coding/ISANSpectrum/.idea/ISANSpectrum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Coding/MatplotlibWidget/.idea/MatplotlibWidget.iml" filepath="$PROJECT_DIR$/../../Coding/MatplotlibWidget/.idea/MatplotlibWidget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Coding/PEEMAnalyzerV2/.idea/PEEMAnalyzerV2.iml" filepath="$PROJECT_DIR$/../../Coding/PEEMAnalyzerV2/.idea/PEEMAnalyzerV2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Coding/RigolDS4024/.idea/RigolDS4024.iml" filepath="$PROJECT_DIR$/../../Coding/RigolDS4024/.idea/RigolDS4024.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Coding/dFinanceV2/.idea/dFinanceV2.iml" filepath="$PROJECT_DIR$/../../Coding/dFinanceV2/.idea/dFinanceV2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Coding/scripts/.idea/scripts.iml" filepath="$PROJECT_DIR$/../../Coding/scripts/.idea/scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Coding/testing/.idea/testing.iml" filepath="$PROJECT_DIR$/../../Coding/testing/.idea/testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Coding/universal/.idea/universal.iml" filepath="$PROJECT_DIR$/../../Coding/universal/.idea/universal.iml" />
+    </modules>
+  </component>
+</project>
