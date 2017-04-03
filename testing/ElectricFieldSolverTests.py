@@ -8,16 +8,18 @@ import numpy as np
 
 
 def benchmark_matrix_direct_solve():
-    """
-    -m cProfile -s tottime
-    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-    solvers with sparse matrix preparation
-    1    0.000    0.000    0.152    0.152 ElectricFieldSolver.py:120(calculate_potential_exact)
-    1    0.013    0.013   66.519   66.519 ElectricFieldSolver.py:135(calculate_potential_gauss_seidel)
-
-    only solvers
-    1    0.032    0.032    0.032    0.032 {scipy.sparse.linalg.dsolve._superlu.gssv}
-    1   65.288   65.288   65.288   65.288 ElectricFieldSolver.py:16(solve_gauss_seidel_cylindric)
+    """ 2017-04-03
+    
+        benchmark_matrix_direct_solve: Testing dx =  0.002  | dy =  0.003
+        CylindricalPoissonSolver : Created with nx =  340  | dx =  0.002  | ny =  110  | dy =  0.003
+        
+        -m cProfile -s tottime
+        ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        solvers with sparse matrix preparation
+        1    0.000    0.000    1.343    1.343 ElectricFieldSolver.py:175(calculate_potential_exact)
+                2    0.435    0.218    0.791    0.396 ElectricFieldSolver.py:585(create_Ab_matrix)
+                2    0.326    0.163    0.326    0.163 {scipy.sparse.linalg.dsolve._superlu.gssv}
+        1  800.569  800.569  800.569  800.569 ElectricFieldSolver.py:19(solve_gauss_seidel_cylindric)
 
     """
     for dz in [2e-3, 5e-3]:
