@@ -23,10 +23,11 @@ def benchmark_matrix_direct_solve():
     for dz in [2e-3, 5e-3]:
         for dr in [3e-3, 4e-3, 5e-3]:
             print("benchmark_matrix_direct_solve: Testing dx = ", dz, " | dy = ", dr)
-            world = cylinder_sugarcube_test(mult=0.4, dz=dz, dr=dr)
+            world = cylinder_sugarcube_test(mult=1, dz=dz, dr=dr)
             ergspsolve = world.calculate_potential_exact()
             ergseidel = world.calculate_potential_gauss_seidel()
-            if not np.allclose(ergspsolve, ergseidel, atol=1e-3):  # atol is set higher, since gauss-seidel only checks rtol
+            if not np.allclose(ergspsolve, ergseidel, rtol=1e-6):  # atol is set higher, since gauss-seidel only checks rtol
+                print("rtol is higher than 1e-6")
                 plot_field(world.zvals, world.rvals, ergspsolve, world.cell_type, 'potential $\phi$ [V] (spsolve)')
                 plot_field(world.zvals, world.rvals, ergseidel, world.cell_type, 'potential $\phi$ [V] (gauss-seidel)')
                 plt.figure()
@@ -100,16 +101,16 @@ def test_magnetic_field_solver(multr=1, multz=1, nz=100, dz=1e-3, nr=120, dr=1e-
 
 
 if __name__ == '__main__':
-    # benchmark_matrix_direct_solve()
+    benchmark_matrix_direct_solve()
 
-    #
-    world = cylinder_sugarcube_test(mult=8, currents=True)
+
+    # world = cylinder_sugarcube_test(mult=8, currents=True)
     # ergspsolve = world.calculate_potential_exact()
     # ergseidel = world.calculate_potential_gauss_seidel()
     # world.plot_all_fields()
 
-    ergspsolve = world.calculate_potential_exact()
-    world.plot_all_fields()
+    # ergspsolve = world.calculate_potential_exact()
+    # world.plot_all_fields()
     # print()
     # print(np.allclose(ergspsolve, ergseidel, atol=1e-3))
 
