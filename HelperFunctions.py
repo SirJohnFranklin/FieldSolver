@@ -24,20 +24,19 @@ def jit_cross(a, b):
     # cross product which is faster than numpy.cross (about 4 times for different vector sizes)
     c = np.zeros(b.shape, dtype=a.dtype)
     for i in xrange(b.shape[0]):
-        # note that += instead of = gives x speedup
         c[i,0] = a[i,1]*b[i,2] - a[i,2]*b[i,1]
         c[i,1] = a[i,2]*b[i,0] - a[i,0]*b[i,2]
         c[i,2] = a[i,0]*b[i,1] - a[i,1]*b[i,0]
 
     return c
 
-def plot_field(xvals, yvals, data, cell_type, zlabel, grid=False, lognorm=False):
+def plot_field(xvals, yvals, data, cell_type, zlabel, grid=False, lognorm=False, mask=False, figsize=(12,4)):
     import copy
     data = copy.deepcopy(data)
-    if np.any(data) > 0:
+    if np.any(data) > 0 and mask is True:
         data[np.where(cell_type > 0)] = np.nan
 
-    fig1 = plt.figure(figsize=(12, 4), facecolor='w', edgecolor='k', tight_layout=True)
+    fig1 = plt.figure(figsize=figsize, facecolor='w', edgecolor='k', tight_layout=True)
     n_levels = 100
 
     # plt.imshow(data, origin='lower')
@@ -49,16 +48,16 @@ def plot_field(xvals, yvals, data, cell_type, zlabel, grid=False, lognorm=False)
         plt.colorbar(label=zlabel, format='%.2e')
     else:
         # print(data)
-        cf = plt.contourf(xvals, yvals, data, n_levels, alpha=.75, linewidth=1, cmap='jet')
+        cf = plt.contourf(xvals, yvals, data, n_levels, alpha=1., linewidth=1, linecolor='k')
+        # extent=[horizontal_min,horizontal_max,vertical_min,vertical_max]
+        # plt.imshow(data, origin='lower', extent=[xvals.min(), xvals.max(), yvals.min(), yvals.max()])
         # cf.set_clim(np.nanmin(data), np.nanmax(data))
         plt.colorbar(label=zlabel, format='%.2e')
 
-        (RR, ZZ) = np.meshgrid(xvals, yvals)  # r, z
-
-
-        celltype_gr_0 = np.where(cell_type > 0.)  # find all cell types which are not 0
+        # (RR, ZZ) = np.meshgrid(xvals, yvals)  # r, z
+        # celltype_gr_0 = np.where(cell_type > 0.)  # find all cell types which are not 0
         # plt.scatter(RR[celltype_gr_0], ZZ[celltype_gr_0],
-        #             c=cell_type[celltype_gr_0], s=50, cmap='bwr_r')
+        #             c=cell_type[celltype_gr_0], s=10, cmap='bwr_r', alpha=0.1)
 
         plt.ylim(min(yvals), max(yvals))
         plt.xlim(min(xvals), max(xvals))
